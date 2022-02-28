@@ -26,9 +26,13 @@ header{
 }
 
 
-.logo h2{
+.logo a{
     font-weight: normal;
     font-size: 24px;
+}
+
+.logo a:hover{
+   cursor:pointer
 }
 
 
@@ -112,20 +116,22 @@ section.main{
     color: white;
     border-radius: 6px;
     font-size: 17px;
-    border: 0;
+    /* border: 0; */
     cursor: pointer
 }
 
 
 .diferenciais{
     display: flex;
+    flex-wrap: wrap;
 }
 
 
 .diferencial-single{
+    border-radius: 8px;
     background-color: white;
-    width: 24% ;
-    margin-right: 1%;
+    width: 23% ;
+    margin-right: 2%;
     padding: 50px 20px
 }
 
@@ -144,5 +150,36 @@ section.main{
 
 
 .diferencial-single p{
-    color: rgb(24, 109, 189);
+    font-size: 14px;
+    line-height: 30px
+}
+
+
+ul a {
+    margin-right: 10px;
+}
+    .ul-1 {
+        margin-left: 30%;
+        margin-top: 20px;
+    }
+  
+    
+    nav {
+        background-color: rgb(42, 23, 128);
+        height: 100%;
+        width: 0px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        overflow: hidden;
+        transition: width 0.3s;
+    }
+
+
+@media screen and (max-width: 768px) {
+    .diferencial-single{
+        width: 100%;
+        margin-bottom: 20px;
+    }
 }

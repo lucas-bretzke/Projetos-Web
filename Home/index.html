@@ -23,7 +23,9 @@
         <div class="center">
 
             <div class="logo">
-                <h2>Lucas.Code</h2>
+                <ul>
+                    <a class="logo" onclick="abrirMenu()">&times; Lucas.Code</a>
+                </ul>
             </div>
 
             <div class="menu">
@@ -46,6 +48,25 @@
         </div>
         <!--center>-->
     </header>
+
+
+    <nav id="menu">
+        
+            <a href="#" class="logo" onclick="fecharMenu()">&times; Fechar</a>
+        
+<div>
+        <a href="#">Home</a>
+        <a href="#">Sobre</a>
+        <a href="#">Contato</a>
+</div>
+
+        <div id="div-config">
+            <a href="">Configurações e privacidade</a>
+            <a href="">Central de ajuda</a>
+
+        </div>
+    </nav>
+
 
 
     <section class="main">
@@ -91,7 +112,17 @@
     </section>
     <!--main-->
 
+    <script>
+        function abrirMenu() {
+            document.getElementById('menu').style.width = '250px';
+            document.getElementById('conteudo').style.marginLeft = '250px';
+        }
 
+        function fecharMenu() {
+            document.getElementById('menu').style.width = '0px';
+            document.getElementById('conteudo').style.marginLeft = '0'
+        }
+    </script>
 </body>
 
 </html>
