@@ -14,6 +14,10 @@
 }
 
 
+.menu-mobile{
+    display: none;
+}
+
 header{
     background-color: white;
     padding: 20px 0;
@@ -105,7 +109,7 @@ section.main{
 .main_cta p{
     color: gree;
     font-size: 19px;
-    margin: 10px 0 
+    margin: 10px 0
 }
 
 
@@ -155,6 +159,60 @@ section.main{
 }
 
 
+section.sobre{
+    padding: 80px 0
+}
+
+
+.chamada-sobre{
+    width: 100%;
+    text-align: center;
+}
+
+.chamada-sobre h2{
+    color:rgb(24, 109, 189);
+    text-transform: uppercase;
+}
+
+
+.chamada-sobre p {
+    font-size: 14px;
+    color: gray;
+    margin: 10px 0
+}
+
+
+.conteudo-sobre{
+    display: flex;
+    /* flex-wrap: wrap */
+}
+
+
+.conteudo-sobre p {
+    width: 48%;
+    margin: 0 30px;
+}
+
+
+section.conquistas{
+    background-color: white;
+    padding: 8px 0;
+}
+
+
+.conquista-single{
+    width: 22%;
+    margin-right: 3%;
+    text-align: center;
+    color:rgb(24, 109, 189);
+    padding: 20px o;
+}
+
+
+.conquista-single h2{
+    font-size: 25px;
+}
+
 ul a {
     margin-right: 10px;
 }
@@ -162,10 +220,11 @@ ul a {
         margin-left: 30%;
         margin-top: 20px;
     }
-  
-    
+
+
     nav {
-        background-color: rgb(42, 23, 128);
+        background-image: url('../img/overlay.png') ,
+        linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
         height: 100%;
         width: 0px;
         position: fixed;
@@ -182,4 +241,27 @@ ul a {
         width: 100%;
         margin-bottom: 20px;
     }
+    
+.logo{
+        width: 35%
+}
+    .menu{
+        display: none;
+    }
+
+    .menu-mobile{
+        width: 80%;
+        text-align: right;
+        display: block;
+    }
+
+
+    .menu-mobile i {
+        cursor: pointer;
+        font-size: 23px;
+        margin-top: 8px;
+    }
+
+
+    .conteudo-sobre p{width: 100%; margin: 20px 20px;}
 }
