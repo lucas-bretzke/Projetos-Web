@@ -66,6 +66,8 @@
     cursor: pointer;
 }
 
+
+
 .title {
     text-align: center;
     color: white;
@@ -74,10 +76,22 @@
     margin-bottom: 8px;
 }
 
-.container-password{
+.password {
     height: 60px;
-    background-color: rgba(0,0,0, 0.40);
+    background-color: rgb(0,0,0, 0.40);
     border-radius: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: white;
+    border: 1px solid rgb(0, 0, 0);
+    transition: transform 0.5s;
+}
+
+.password:hover {
+    transform: scale(1.06);  /*Faz a dive mudar de tamanho*/
+}
+
+.tooltip {
+    color: white;
+}
