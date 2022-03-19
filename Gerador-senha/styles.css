@@ -1,0 +1,83 @@
+/* Paleta de cores
+
+
+ */
+
+ * {
+     width: 100%;
+     margin: 0 auto;
+     padding: 0;
+     box-sizing: border-box;
+     font-family: sans-serif;
+ }
+
+ body {
+     background-color: rgb(20, 20, 20);
+     width: 100%;
+     height: 100vh;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     flex-direction: column;
+ }
+
+ .logo {
+     max-width: 600px;
+     margin-bottom: 24px;
+ }
+
+ .container-input {
+     max-width: 400px;
+     margin: 17px 0;
+ }
+
+ .container-input span {
+     color: white;
+     font-size: 22px;
+ }
+
+ .slider {
+    -webkit-appearance: none; /*tira o preenchimento da barra */
+    width: 100%;
+    border-radius: 5px;
+    background: #ddd;
+    height: 18px;
+    outline: none;
+    margin-top: 18px;
+}
+
+.button-cta {
+    height: 40px;
+    background-color: rgb(68, 126, 29);
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 40px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.container-password{
+    max-width: 480px;
+    margin: 14px 0;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.title {
+    text-align: center;
+    color: white;
+    font-size: 28px;
+    margin-top: 24px;
+    margin-bottom: 8px;
+}
+
+.container-password{
+    height: 60px;
+    background-color: rgba(0,0,0, 0.40);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
