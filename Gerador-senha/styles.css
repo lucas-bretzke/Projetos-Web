@@ -94,4 +94,25 @@
 
 .tooltip {
     color: white;
+    position: relative;
+    top: 20px;
+    padding: 6px 8px;
+    background-color: rgb(15, 15, 15);
+    text-align: center;
+    font-size: 16px;
+    border-radius: 6px;
+    visibility: hidden;   /*Faz ficar invisivel*/
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+
+}
+
+.hide {
+    display: none;
+}
+
+.container-password:hover .tooltip {
+    visibility: visible;
+    bottom: 50px;
+    opacity: 1;
 }
