@@ -31,13 +31,12 @@ function generatePassword() {
 
     containerPassword.classList.remove("hide");
     password.innerHTML = pass;
-    novaSenha = pass;`
-    `
+    novaSenha = pass; 
 }
 
 function copyPassword() {
-    navigator.clipboard.writeText(novaSenha); 
-    alert("Senha gerada")
+    navigator.clipboard.writeText(novaSenha);
+    alert("Senha copiada com Sucesso !!!")
 }
 
 
