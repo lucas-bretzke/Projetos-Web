@@ -30,7 +30,7 @@
  .slider--width {
     height: 100%;
     display: flex;
-    transition: all ease 0.3;   /* Efeito*/
+    transition: all ease 1.0;   /* Efeito*/
  }
 
  .slider--item {
@@ -38,6 +38,13 @@
      height: inherit;  /*Ele érda a Altura*/
      background-position: center;  /*PRECISA SER USSADO EM TODAS A IMGS*/
      background-size: cover;       /*PRECISA SER USSADO EM TODAS A IMGS*/
+
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-size: 30px;
+     color: white;
+     text-shadow: 0px 2px 2px magenta;
  }
 
  .slider--controls {
