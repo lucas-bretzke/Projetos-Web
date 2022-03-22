@@ -1,0 +1,63 @@
+/* Paleta de corres
+
+
+ */
+
+ * {
+     padding: 0px;
+     margin: 0px;
+     box-sizing: border-box;
+     font-family: Arial, Helvetica, sans-serif;
+ }
+
+
+ header {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+ }
+
+ .header {
+     height: 50px;
+     background-color: red;
+ }
+
+ .slider {
+     flex: 1;
+     overflow: hidden;
+    }
+
+ .slider--width {
+    height: 100%;
+    display: flex;
+    transition: all ease 0.3;   /* Efeito*/
+ }
+
+ .slider--item {
+     width: 100vw;
+     height: inherit;  /*Ele érda a Altura*/
+     background-position: center;  /*PRECISA SER USSADO EM TODAS A IMGS*/
+     background-size: cover;       /*PRECISA SER USSADO EM TODAS A IMGS*/
+ }
+
+ .slider--controls {
+    position: absolute;
+    z-index: 99;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+ }
+
+ .slider-control {
+    width: 50px;
+    height: 50px;
+    font-size: 19px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: rgb(0, 0, 0) 3px 3px 3px 3px;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    overflow: hidden;
+ }
