@@ -1,8 +1,16 @@
 let totalSlides = document.querySelectorAll('.slider--item').length;
 let currentSlide = 0;
 
+let sliderWidth = document.querySelector('.slider').clientWidth;
+
 document.querySelector('.slider--width').style.width =
-    `calc(100vw * ${totalSlides})`;
+ `${sliderWidth * totalSlides}px`;         
+// `calc(100vw * ${totalSlides})`;
+
+//
+document.querySelector('.slider--controls').style.width =
+    `${sliderWidth}px`;
+//Para ficar a Imagem na tela toda este DOM deve sair
 
 document.querySelector('.slider--controls').style.height =
     `${document.querySelector('.slider').clientHeight}px`;
