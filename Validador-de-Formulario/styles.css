@@ -1,0 +1,50 @@
+/* Paleta de cores
+
+*/
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+
+.screen {
+    display: flex;
+    height: 100vh;
+}
+
+.leftSide {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.leftSide img {
+    max-width: 500px;
+    height: auto;
+}
+
+.rightSide {
+    width: 400px;
+    padding: 50px;
+    background-color: #DDD ;
+}
+
+.rightSide label {
+    display: block;
+    margin-bottom: 20px;
+}
+.rightSide input {
+    border: 1px solid #999;
+    border-radius: 5px;
+    padding: 8px;
+    font-size: 14px;
+    width: 100%;
+    outline: 0;   /*Tira a borda no input ao Clicar!!!*/
+}
+
+.error {
+    font-size: 11px;
+    border-radius: 5px;
+}
