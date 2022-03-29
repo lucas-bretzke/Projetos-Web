@@ -1,51 +1,41 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=
-    , initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validacao de formulario</title>
     <link rel="stylesheet" href="styles.css">
-    <title>Validador de Formulario</title>
+    <script src="script.js" defer></script>
 </head>
 
 <body>
 
+    <form action="">
+        <h2>
+            Entrar na lista
+        </h2>
 
-    <div class="screen">
-        <div class="leftSide">
-            <img src="../SliderShow/img//pexels-james-wheeler-417074.jpg" alt="">
+        <div class="input">
+            <input type="text" required>
+            <label>nome</label>
+            <span class="error" ></span>
         </div>
-        <div class="rightSide">
-            <h1>Crie uma conta</h1>
 
-            <form method="POST" action="cadastro.php" class="b7validator">
-                <label> Seu nome: <br>
-                    <input  type="text" name="name" data-rules="required">
-                </label>
-
-                <label> Seu E-mail: <br>
-                    <input type="text" name="email"  >
-                </label>
-
-                <label> Sua senha: <br>
-                    <input type="password" name="password">
-                </label>
-
-                <label>
-                    <input type="submit" value="Cadastrar">
-                </label>
-            </form>
-
-            <div class="">
-                Já tem uma conta? <a href="">faça seu login</a>
-            </div>
-
+        <div class="input">
+            <input type="text" required>
+            <label>E-mail</label>
+            <span class="error"></span>
         </div>
-    </div>
 
-    <script src="script.js"></script>
+        <button>Enviar</button>
+
+    </form>
+
+
+
+
 </body>
 
 </html>

@@ -1,50 +1,106 @@
-/* Paleta de cores
-
-*/
+:root {
+    --primary-color: #fd951f;
+    --bg-color: #130f0d;
+    --text-color: #f0f0f5;
+    --light-color: #rgba(255, 255, 255, 0.04);
+}
 
 * {
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-
-.screen {
-    display: flex;
+body {
     height: 100vh;
-}
 
-.leftSide {
-    flex: 1;
     display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.leftSide img {
-    max-width: 500px;
-    height: auto;
+    flex-direction: column;
+
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
-.rightSide {
-    width: 400px;
-    padding: 50px;
-    background-color: #DDD ;
-}
+form {
+    background: rgba(255, 255, 255, 0.03);
 
-.rightSide label {
-    display: block;
-    margin-bottom: 20px;
-}
-.rightSide input {
-    border: 1px solid #999;
-    border-radius: 5px;
-    padding: 8px;
-    font-size: 14px;
     width: 100%;
-    outline: 0;   /*Tira a borda no input ao Clicar!!!*/
+    max-width: 500px;
+    margin: 32px auto;
+    padding: 32px 64px;
+
+    display: flex;
+    flex-direction: column;
 }
 
-.error {
-    font-size: 11px;
-    border-radius: 5px;
+form h2 {
+    margin-bottom: 32px;
+}
+
+div.input {
+    margin-bottom: 24px;
+    position: relative;
+}
+
+input, button {
+    /* reset appearance */
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+
+    /* box */
+    width: 100%;
+    padding: 16px 0;
+
+    border: none;
+    border-bottom: 1px solid var(--primary-color);
+
+    background-color: transparent;
+
+    outline: none;
+    /* Tira as bordas */
+
+    /* text */
+    color: var(--text-color);
+    font-size: 16px;
+}
+
+button {
+    margin-top: 16px;
+    background-color: var(--primary-color);
+}
+
+/* Isso faz a animacao do input */
+input~label {
+    position: absolute;
+    top: 16px;
+    left: 1%;
+
+    color: rgba(255, 255, 255, 0.528);
+
+    transition: .4s;
+}
+
+input:focus~label,
+input:valid~label {
+    transform: translateY(-24px);
+    font-size: 0.8em;
+    letter-spacing: 0.2em;
+    /* Espacamento entre as Letras*/
+}
+
+/* Isso faz a animacao no input */
+
+.input span.error {
+    display: flex;
+
+    padding: 0;
+
+    background-color: rgba(255, 0, 0, 0.02);
+}
+
+.input span.error.active {
+    border: 1px solid red;
+    padding: 0.4em;
 }
