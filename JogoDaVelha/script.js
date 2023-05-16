@@ -18,10 +18,10 @@ function placeMark(index) {
 
         if (verificarVitoria()) {
             alert(`O jogador ${currentPlayer} venceu!`)
-            resetBoard()
+            resetGame()
         } else if (!board.includes("")) {
             alert('O jogo terminou em empate!')
-            resetBoard()
+            resetGame()
         } else {
             currentPlayer = currentPlayer === "X" ? "O" : "X"
         }
@@ -37,12 +37,12 @@ function verificarVitoria() {
     return false
 }
 
-function resetBoard() {
+function resetGame() {
     currentPlayer = "X"
     board = ["", "", "", "", "", "", "", "", ""];
-    const cell = document.getElementsByClassName('cell')
-    for (i = 0; i < cell.length; i++) {
-        cell[i].innerText = ""
+    const cells = document.getElementsByClassName('cell')
+    for (i = 0; i < cells.length; i++) {
+        cells[i].innerText = ""
     }
 }
 
