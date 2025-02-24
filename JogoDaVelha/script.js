@@ -1,48 +1,74 @@
-let currentPlayer = "X";
-let board = ["", "", "", "", "", "", "", "", ""];
+let board = ['', '', '', '', '', '', '', '', '']
+let currentPlayer = 'X'
+let playerNames = { X: 'Jogador X', O: 'Jogador O' }
+let scores = { X: 0, O: 0, draw: 0 }
+
 const winningCombinations = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6]
-];
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6]
+]
 
-function placeMark(index) {
-    if (board[index] === "") {
-        board[index] = currentPlayer;
-        document.getElementsByClassName("cell")[index].innerText = currentPlayer;
+function startGame() {
+  const playerXInput = document.getElementById('playerX').value
+  const playerOInput = document.getElementById('playerO').value
 
-        if (verificarVitoria()) {
-            alert(`O jogador ${currentPlayer} venceu!`)
-            resetGame()
-        } else if (!board.includes("")) {
-            alert('O jogo terminou em empate!')
-            resetGame()
-        } else {
-            currentPlayer = currentPlayer === "X" ? "O" : "X"
-        }
-    }
+  if (playerXInput.trim() !== '') playerNames.X = playerXInput
+  if (playerOInput.trim() !== '') playerNames.O = playerOInput
+
+  document.getElementById('playerXName').innerText = playerNames.X
+  document.getElementById('playerOName').innerText = playerNames.O
 }
 
-function verificarVitoria() {
-    for (combination of winningCombinations) {
-        const [a, b, c] = combination
-        if (board[a] !== "" && board[a] === board[b] && board[a] === board[c])
-            return true
+function placeMark(index) {
+  if (board[index] === '') {
+    board[index] = currentPlayer
+    document.getElementsByClassName('cell')[index].innerText = currentPlayer
+
+    if (checkWin()) {
+      alert(`${playerNames[currentPlayer]} venceu!`)
+      scores[currentPlayer]++
+      updateScoreboard()
+      resetGame()
+    } else if (!board.includes('')) {
+      alert('O jogo terminou em empate!')
+      scores.draw++
+      updateScoreboard()
+      resetGame()
+    } else {
+      currentPlayer = currentPlayer === 'X' ? 'O' : 'X'
     }
-    return false
+  }
+}
+
+function checkWin() {
+  return winningCombinations.some(combination => {
+    const [a, b, c] = combination
+    return board[a] && board[a] === board[b] && board[a] === board[c]
+  })
 }
 
 function resetGame() {
-    currentPlayer = "X"
-    board = ["", "", "", "", "", "", "", "", ""];
-    const cells = document.getElementsByClassName('cell')
-    for (i = 0; i < cells.length; i++) {
-        cells[i].innerText = ""
-    }
+  board = ['', '', '', '', '', '', '', '', '']
+  currentPlayer = 'X'
+  Array.from(document.getElementsByClassName('cell')).forEach(
+    cell => (cell.innerText = '')
+  )
 }
 
+function updateScoreboard() {
+  document.getElementById('scoreX').innerText = scores.X
+  document.getElementById('scoreO').innerText = scores.O
+  document.getElementById('scoreDraw').innerText = scores.draw
+}
+
+function resetAll() {
+  scores = { X: 0, O: 0, draw: 0 }
+  updateScoreboard()
+  resetGame()
+}

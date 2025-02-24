@@ -5,23 +5,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jogo da velha</title>
+    <title>Jogo da Velha</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-    <button onclick="resetGame()">Reiniciar</button>
-    <div class="gird">
-        <div class="cell" data-cell onclick="placeMark(0)"></div>
-        <div class="cell" data-cell onclick="placeMark(1)"></div>
-        <div class="cell" data-cell onclick="placeMark(2)"></div>
-        <div class="cell" data-cell onclick="placeMark(3)"></div>
-        <div class="cell" data-cell onclick="placeMark(4)"></div>
-        <div class="cell" data-cell onclick="placeMark(5)"></div>
-        <div class="cell" data-cell onclick="placeMark(6)"></div>
-        <div class="cell" data-cell onclick="placeMark(7)"></div>
-        <div class="cell" data-cell onclick="placeMark(8)"></div>
+    <div class="container">
+        <h1>Jogo da Velha</h1>
+
+        <div class="player-inputs">
+            <input type="text" id="playerX" placeholder="Nome do Jogador X">
+            <input type="text" id="playerO" placeholder="Nome do Jogador O">
+            <button onclick="startGame()">Iniciar Jogo</button>
+        </div>
+
+        <div class="scoreboard">
+            <p><span id="playerXName">X</span>: <span id="scoreX">0</span> Vitórias</p>
+            <p><span id="playerOName">O</span>: <span id="scoreO">0</span> Vitórias</p>
+            <p>Empates: <span id="scoreDraw">0</span></p>
+        </div>
+
+        <button class="reset-btn" onclick="resetAll()">Limpar Tudo</button>
+
+        <div class="grid">
+            <div class="cell" data-cell onclick="placeMark(0)"></div>
+            <div class="cell" data-cell onclick="placeMark(1)"></div>
+            <div class="cell" data-cell onclick="placeMark(2)"></div>
+            <div class="cell" data-cell onclick="placeMark(3)"></div>
+            <div class="cell" data-cell onclick="placeMark(4)"></div>
+            <div class="cell" data-cell onclick="placeMark(5)"></div>
+            <div class="cell" data-cell onclick="placeMark(6)"></div>
+            <div class="cell" data-cell onclick="placeMark(7)"></div>
+            <div class="cell" data-cell onclick="placeMark(8)"></div>
+        </div>
+
+        <button onclick="resetGame()">Reiniciar Jogo</button>
     </div>
 
     <script src="script.js"></script>
