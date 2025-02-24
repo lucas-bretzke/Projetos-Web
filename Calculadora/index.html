@@ -13,43 +13,40 @@
 
     <div class="conteudo">
         <div class="calculator">
-            <p class="result" id="resultado">cdcsc</p>
+            <p class="result" id="resultado">0</p>
 
             <table>
                 <tr>
-                    <td><button class="btn ac" >AC</button></td>
-                    <td><button class="btn neg">AP</button></td>
-                    <td><button class="btn especial">/</button></td>
+                    <td><button class="btn ac" onclick="limpar()">AC</button></td>
+                    <td><button class="btn neg" onclick="apagar()">⌫</button></td>
+                    <td><button class="btn especial" onclick="adicionar('/')">/</button></td>
+                    <td><button class="btn especial" onclick="adicionar('*')">×</button></td>
                 </tr>
                 <tr>
-                    <td><button class="btn">7</button></td>
-                    <td><button class="btn">8</button></td>
-                    <td><button class="btn">9</button></td>
-                    <td><button class="btn especial">x</button></td>
+                    <td><button class="btn" onclick="adicionar('7')">7</button></td>
+                    <td><button class="btn" onclick="adicionar('8')">8</button></td>
+                    <td><button class="btn" onclick="adicionar('9')">9</button></td>
+                    <td><button class="btn especial" onclick="adicionar('-')">-</button></td>
                 </tr>
                 <tr>
-                    <td><button class="btn">4</button></td>
-                    <td><button class="btn">5</button></td>
-                    <td><button class="btn">6</button></td>
-                    <td><button class="btn especial">-</button></td>
+                    <td><button class="btn" onclick="adicionar('4')">4</button></td>
+                    <td><button class="btn" onclick="adicionar('5')">5</button></td>
+                    <td><button class="btn" onclick="adicionar('6')">6</button></td>
+                    <td><button class="btn especial" onclick="adicionar('+')">+</button></td>
                 </tr>
                 <tr>
-                    <td><button class="btn">1</button></td>
-                    <td><button class="btn">2</button></td>
-                    <td><button class="btn">3</button></td>
-                    <td><button class="btn especial">+</button></td>
+                    <td><button class="btn" onclick="adicionar('1')">1</button></td>
+                    <td><button class="btn" onclick="adicionar('2')">2</button></td>
+                    <td><button class="btn" onclick="adicionar('3')">3</button></td>
+                    <td rowspan="2"><button class="btn igual" onclick="calcular()">=</button></td>
                 </tr>
                 <tr>
-                    <td><button class="btn">0</button></td>
-                    <td><button class="btn">.</button></td>
-                    <td><button class="btn igual ac">=</button></td>
+                    <td colspan="2"><button class="btn" onclick="adicionar('0')">0</button></td>
+                    <td><button class="btn" onclick="adicionar('.')">.</button></td>
                 </tr>
             </table>
         </div>
     </div>
-
-
-
 
     <script src="script.js"></script>
 </body>
