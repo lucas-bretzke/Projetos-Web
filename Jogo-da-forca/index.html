@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Forca</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #game {
+            display: none;
+        }
+        #word-display {
+            font-size: 24px;
+            letter-spacing: 5px;
+        }
+        canvas {
+            border: 1px solid black;
+            margin: 20px auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="setup">
+        <h1>Jogo da Forca</h1>
+        <input type="text" id="word-input" placeholder="Digite a palavra...">
+        <button onclick="startGame()">Iniciar Jogo</button>
+    </div>
+
+    <div id="game">
+        <canvas id="hangmanCanvas" width="200" height="200"></canvas>
+        <div id="word-display"></div>
+        <br>
+        <input type="text" id="letter-input" maxlength="1">
+        <button onclick="guessLetter()">Adivinhar</button>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        let secretWord = "";
+        let guessedLetters = [];
+        let mistakes = 0;
+        const maxMistakes = 6;
+        const canvas = document.getElementById("hangmanCanvas");
+        const ctx = canvas.getContext("2d");
+
+        function startGame() {
+            secretWord = document.getElementById("word-input").value.toUpperCase();
+            if (!secretWord) return alert("Digite uma palavra válida!");
+            
+            document.getElementById("setup").style.display = "none";
+            document.getElementById("game").style.display = "block";
+            guessedLetters = Array(secretWord.length).fill("_");
+            mistakes = 0;
+            drawHangman();
+            updateWordDisplay();
+        }
+
+        function updateWordDisplay() {
+            document.getElementById("word-display").textContent = guessedLetters.join(" ");
+        }
+
+        function guessLetter() {
+            let letter = document.getElementById("letter-input").value.toUpperCase();
+            document.getElementById("letter-input").value = "";
+            if (!letter || guessedLetters.includes(letter)) return;
+
+            if (secretWord.includes(letter)) {
+                for (let i = 0; i < secretWord.length; i++) {
+                    if (secretWord[i] === letter) guessedLetters[i] = letter;
+                }
+            } else {
+                mistakes++;
+                drawHangman();
+            }
+
+            updateWordDisplay();
+            checkGameStatus();
+        }
+
+        function checkGameStatus() {
+            if (!guessedLetters.includes("_")) {
+                document.getElementById("message").textContent = "Você venceu!";
+            } else if (mistakes >= maxMistakes) {
+                document.getElementById("message").textContent = "Você perdeu! A palavra era: " + secretWord;
+            }
+        }
+
+        function drawHangman() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.lineWidth = 2;
+            ctx.strokeStyle = "black";
+
+            if (mistakes > 0) ctx.strokeRect(50, 150, 100, 10); // Base
+            if (mistakes > 1) ctx.strokeRect(90, 50, 10, 100); // Poste
+            if (mistakes > 2) ctx.strokeRect(90, 50, 60, 10); // Barra superior
+            if (mistakes > 3) ctx.strokeRect(140, 50, 1, 20); // Corda
+            if (mistakes > 4) { ctx.beginPath(); ctx.arc(140, 80, 10, 0, Math.PI * 2); ctx.stroke(); } // Cabeça
+            if (mistakes > 5) { ctx.moveTo(140, 90); ctx.lineTo(140, 120); ctx.stroke(); } // Corpo
+            if (mistakes > 6) { ctx.moveTo(140, 95); ctx.lineTo(130, 110); ctx.stroke(); } // Braço esquerdo
+            if (mistakes > 7) { ctx.moveTo(140, 95); ctx.lineTo(150, 110); ctx.stroke(); } // Braço direito
+            if (mistakes > 8) { ctx.moveTo(140, 120); ctx.lineTo(130, 140); ctx.stroke(); } // Perna esquerda
+            if (mistakes > 9) { ctx.moveTo(140, 120); ctx.lineTo(150, 140); ctx.stroke(); } // Perna direita
+        }
+    </script>
+</body>
+</html>
