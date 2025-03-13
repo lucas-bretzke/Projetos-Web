@@ -2,39 +2,42 @@
     --primary-color: #fd951f;
     --bg-color: #130f0d;
     --text-color: #f0f0f5;
+    --btn-bg-color: #0C1A21;
+    --btn-hover-bg-color: #162f3b;
+    --ac-bg-color: #1b7269;
+    --ac-hover-bg-color: #228f84;
+    --especial-bg-color: #228f84;
+    --especial-hover-bg-color: #18646b;
+    --igual-bg-color: #1b7269;
+    --igual-hover-bg-color: #25968a;
 }
 
 * {
-    padding: 0px 0;
-    margin: 0px 0;
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
     height: 100vh;
-
-    text-align: center;
-
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
+    text-align: center;
     background-color: #2ab3ac;
 }
 
 .calculator {
-    width: 250px;
-    padding: 10px;
-
+    width: 300px;
+    padding: 5px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
     border-radius: 15px;
-    background-color: #130f0d;
+    background-color: var(--bg-color);
 }
 
 table td {
@@ -43,56 +46,50 @@ table td {
 
 .btn {
     width: 46px;
-
     padding: 10px;
     margin: 5px;
-
     cursor: pointer;
     border: none;
-
     font-size: 18px;
-    background-color: #0C1A21;
+    background-color: var(--btn-bg-color);
     color: white;
-    transition: all 600ms ease-in-out;
+    transition: background-color 600ms ease-in-out;
 }
 
 .btn:hover {
-    background-color: #162f3b;
+    background-color: var(--btn-hover-bg-color);
 }
 
 .ac {
-    background-color: #1b7269;
+    background-color: var(--ac-bg-color);
     width: 100px;
 }
 
 .ac:hover {
-    background-color: #228f84;
+    background-color: var(--ac-hover-bg-color);
 }
 
 .especial {
-    background-color: #228f84;
+    background-color: var(--especial-bg-color);
 }
 
 .especial:hover {
-    background-color: #18646b;
+    background-color: var(--especial-hover-bg-color);
 }
 
 .igual {
-    background-color: #1b7269;
+    background-color: var(--igual-bg-color);
 }
 
 .igual:hover {
-    background-color: #25968a;
+    background-color: var(--igual-hover-bg-color);
 }
 
 .result {
     height: 100px;
-
     text-align: right;
     font-size: 25px;
     justify-content: center;
-
     color: #fff;
     word-wrap: break-word;
-
 }

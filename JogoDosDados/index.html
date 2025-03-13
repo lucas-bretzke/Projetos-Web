@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Dados</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h3>Simulador de Dados</h3>
+    <form>
+        <label for="faces">Selecione o número de faces do dado:</label>
+        <select id="faces">
+            <option value="6">6 faces</option>
+            <option value="10">10 faces</option>
+            <option value="12">12 faces</option>
+            <option value="20">20 faces</option>
+        </select>
+        <br>
+        <label for="">Quantos dados deseja jogar? max: 4</label>
+        <input type="text" placeholder="Digite um valor" id="input">
+        <br><br>
+
+        <button type="button" onclick="girarDados()">Girar o dado</button>
+
+        <br><br>
+
+        <div id="resultados">
+            <h1 id="resultado">Resultado: </h1>
+        </div>
+
+
+        <div id="historico">
+            <h2>Historico de resultados</h2>
+        </div>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
