@@ -40,6 +40,16 @@ body {
     background-color: var(--bg-color);
 }
 
+header {
+    background-color: var(--text-color);
+    color: #130f0d;
+    border-radius: 10px;
+    width: 97%;
+    height: 30px;
+    margin: 5px;
+    padding: 5px 10px;
+}
+
 table td {
     display: inline-block;
 }
@@ -86,10 +96,7 @@ table td {
 }
 
 .result {
-    height: 100px;
     text-align: right;
-    font-size: 25px;
-    justify-content: center;
-    color: #fff;
-    word-wrap: break-word;
+    font-size: 20px;
+    color: #130f0d;
 }
