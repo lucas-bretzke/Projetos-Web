@@ -30,28 +30,31 @@ body {
 }
 
 .calculator {
-    width: 300px;
-    padding: 5px;
+    width: 250px;
+    padding: 10px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 15px;
     background-color: var(--bg-color);
+    display: flex;
+    flex-direction: column  ;
 }
 
 header {
     background-color: var(--text-color);
     color: #130f0d;
     border-radius: 10px;
-    width: 97%;
+    width: 220px;
     height: 30px;
-    margin: 5px;
+    margin: 5px auto;
     padding: 5px 10px;
 }
 
 table td {
     display: inline-block;
+    margin: 0 auto;
 }
 
 .btn {
@@ -96,6 +99,7 @@ table td {
 }
 
 .result {
+    width: auto;
     text-align: right;
     font-size: 20px;
     color: #130f0d;
