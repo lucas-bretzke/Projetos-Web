@@ -6,29 +6,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Compras</title>
     <link rel="stylesheet" href="styles.css">
-
+    <script src="script.js" defer></script>
 </head>
 
 <body>
-    <div class="container">
-        <h1>Lista de Compras</h1>
-        <div class="add-item">
-            <input type="text" id="item-input" placeholder="Adicionar novo item">
-        </div>
+    <main class="container">
+        <header>
+            <h1>Lista de Compras</h1>
+            <div class="add-item">
+                <input type="text" id="item-input" placeholder="Adicionar novo item" @keyup.enter="addItem">
+                <button onclick="addItem()">Adicionar</button>
+            </div>
+        </header>
 
         <div class="lists-container">
-            <ul id="shopping-list">
-            </ul>
-            <ul id="already-purchased">
-            </ul>
+            <div class="list">
+                <h2>Itens a Comprar</h2>
+                <ul id="shopping-list"></ul>
+            </div>
+            <div class="list">
+                <h2>Itens Comprados</h2>
+                <ul id="already-purchased"></ul>
+            </div>
         </div>
 
-        <button onclick="addItem()">+</button>
-    </div>
+        <div class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Tem certeza que deseja limpar sua lista de compras?</h2>
+                <button onclick="clearlists()">Confirmar</button>
+                <button onclick="closeModal()">Cancelar</button>
+            </div>
+        </div>
 
 
-    <script src="script.js"></script>
-
+        <div class="modal-remove-item">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Tem certeza que deseja excluir este item?</h2>
+                <button onclick="removeItem()">Confirmar</button>
+                <button onclick="closeModalRemoveItem()">Cancelar</button>
+            </div>
+        </div>
+        <footer>
+            <button onclick="showModal()">Limpar Listas</button>
+        </footer>
+    </main>
 </body>
 
 </html>
