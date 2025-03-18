@@ -1,101 +1,103 @@
-const itemInput = document.getElementById('item-input');
-const shoppingList = document.getElementById('shopping-list');
-const alreadyPurchased = document.getElementById('already-purchased');
-const modal = document.querySelector('.modal');
-const modalRemoveItem = document.querySelector('.modal-remove-item');
+const ShoppingListApp = (() => {
+    const itemInput = document.getElementById('item-input');
+    const shoppingList = document.getElementById('shopping-list');
+    const alreadyPurchased = document.getElementById('already-purchased');
+    const modal = document.querySelector('.modal');
+    const modalRemoveItem = document.querySelector('.modal-remove-item');
 
-let itemToRemove = null;
+    let itemToRemove = null;
 
-function addItem() {
-    const itemText = itemInput.value.trim();
+    const createElement = (tag, className, textContent = '') => {
+        const element = document.createElement(tag);
+        if (className) element.classList.add(className);
+        if (textContent) element.textContent = textContent;
+        return element;
+    };
 
-    if (itemText !== '') {
-        const li = document.createElement('li');
-        const p = document.createElement('p');
-        const txtQuantity = document.createElement('p');
-        const btnIncrement = document.createElement('button');
-        const btnDecrement = document.createElement('button');
-        const btnRemoveItem = document.createElement('button');
-        const btnConfirmPurchase = document.createElement('button');
+    const addItem = () => {
+        const itemText = itemInput.value.trim();
+        if (!itemText) return;
 
-        p.textContent = itemText;
-        txtQuantity.textContent = `1`;
-        btnIncrement.textContent = '+';
-        btnDecrement.textContent = '-';
-        btnRemoveItem.textContent = 'X';
-        btnConfirmPurchase.textContent = '✅';
+        const li = createElement('li');
+        const p = createElement('p', null, itemText);
+        const txtQuantity = createElement('p', 'quantity', '1');
+        const btnIncrement = createElement('button', 'increment', '+');
+        const btnDecrement = createElement('button', 'decrement', '-');
+        const btnRemoveItem = createElement('button', 'remove', 'X');
+        const btnConfirmPurchase = createElement('button', 'confirm', '✅');
 
-        btnIncrement.classList.add('increment');
-        btnDecrement.classList.add('decrement');
-        btnRemoveItem.classList.add('remove');
-        btnConfirmPurchase.classList.add('confirm');
-
-        btnIncrement.onclick = () => {
-            const currentQuantity = parseInt(txtQuantity.textContent);
-            txtQuantity.textContent = `${currentQuantity + 1}`;
-        };
-
-        btnDecrement.onclick = () => {
-            const currentQuantity = parseInt(txtQuantity.textContent);
-            if (currentQuantity > 1) {
-                txtQuantity.textContent = `${currentQuantity - 1}`;
-            } else {
-                shoppingList.removeChild(li);
-            }
-        };
-
+        // Eventos dos botões
+        btnIncrement.onclick = () => updateQuantity(txtQuantity, 1);
+        btnDecrement.onclick = () => updateQuantity(txtQuantity, -1, li);
         btnRemoveItem.onclick = () => showModalRemoveItem(li);
-
-        btnConfirmPurchase.onclick = () => {
-            shoppingList.removeChild(li);
-            alreadyPurchased.appendChild(li);
-
-            txtQuantity.textContent = `Quantidade: ${txtQuantity.textContent}`;
-            li.removeChild(btnConfirmPurchase);
-            li.removeChild(btnDecrement);
-            li.removeChild(btnIncrement);
-        };
+        btnConfirmPurchase.onclick = () => confirmPurchase(li, txtQuantity);
 
         li.append(p, btnDecrement, txtQuantity, btnIncrement, btnRemoveItem, btnConfirmPurchase);
-
         shoppingList.appendChild(li);
 
         itemInput.value = '';
-    }
-}
+    };
 
-function removeItem() {
-    if (itemToRemove) {
-        shoppingList.removeChild(itemToRemove);
+    const updateQuantity = (quantityElement, change, listItem = null) => {
+        const currentQuantity = parseInt(quantityElement.textContent);
+        const newQuantity = currentQuantity + change;
+
+        if (newQuantity > 0) {
+            quantityElement.textContent = `${newQuantity}`;
+        } else if (listItem) {
+            shoppingList.removeChild(listItem);
+        }
+    };
+
+    const confirmPurchase = (listItem, quantityElement) => {
+        shoppingList.removeChild(listItem);
+        alreadyPurchased.appendChild(listItem);
+
+        quantityElement.textContent = `Quantidade: ${quantityElement.textContent}`;
+        listItem.querySelectorAll('button').forEach(button => button.remove());
+    };
+
+    const removeItem = () => {
+        if (itemToRemove) {
+            shoppingList.removeChild(itemToRemove);
+            itemToRemove = null;
+        }
+        closeModalRemoveItem();
+    };
+
+    const showModalRemoveItem = (item) => {
+        itemToRemove = item;
+        toggleModal(modalRemoveItem, true);
+    };
+
+    const closeModalRemoveItem = () => {
+        toggleModal(modalRemoveItem, false);
         itemToRemove = null;
-    }
-    closeModalRemoveItem();
-}
+    };
 
-function showModalRemoveItem(item) {
-    itemToRemove = item;
-    modalRemoveItem.style.opacity = '1';
-    modalRemoveItem.style.visibility = 'visible';
-}
+    const clearLists = () => {
+        shoppingList.innerHTML = '';
+        alreadyPurchased.innerHTML = '';
+        toggleModal(modal, false);
+    };
 
-function closeModalRemoveItem() {
-    modalRemoveItem.style.opacity = '0';
-    modalRemoveItem.style.visibility = 'hidden';
-    itemToRemove = null;
-}
+    const toggleModal = (modalElement, isVisible) => {
+        modalElement.style.opacity = isVisible ? '1' : '0';
+        modalElement.style.visibility = isVisible ? 'visible' : 'hidden';
+    };
 
-function clearlists() {
-    shoppingList.innerHTML = '';
-    alreadyPurchased.innerHTML = '';
-    closeModal();
-}
+    return {
+        addItem,
+        removeItem,
+        clearLists,
+        showModal: () => toggleModal(modal, true),
+        closeModal: () => toggleModal(modal, false),
+        closeModalRemoveItem,
+    };
+})();
 
-function showModal() {
-    modal.style.opacity = '1';
-    modal.style.visibility = 'visible';
-}
-
-function closeModal() {
-    modal.style.opacity = '0';
-    modal.style.visibility = 'hidden';
-}
+// Eventos globais
+document.querySelector('.add-item button').onclick = ShoppingListApp.addItem;
+document.querySelector('.modal .close').onclick = ShoppingListApp.closeModal;
+document.querySelector('.modal-remove-item .close').onclick = ShoppingListApp.closeModalRemoveItem;
+document.querySelector('footer button').onclick = ShoppingListApp.showModal;
