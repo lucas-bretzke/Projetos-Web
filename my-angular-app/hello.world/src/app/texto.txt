@@ -1,0 +1,3 @@
+ npx -p @angular/cli ng new hello.world
+ 
+ npx ng generate component button

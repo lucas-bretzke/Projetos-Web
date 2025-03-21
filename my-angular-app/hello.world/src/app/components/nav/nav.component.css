@@ -12,6 +12,8 @@ nav {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
+    align-items: flex-end;
+    justify-content: flex-end;
 }
 
 .nav-list {
