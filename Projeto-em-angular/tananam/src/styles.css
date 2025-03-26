@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+
+.product-list {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 2rem 0;
+}

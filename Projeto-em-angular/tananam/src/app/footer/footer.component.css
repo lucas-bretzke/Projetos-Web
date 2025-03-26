@@ -1,0 +1,20 @@
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1.5rem; /* Increased padding for better spacing */
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 0.9rem; /* Adjust font size */
+}
+
+footer p {
+  margin: 0;
+  font-weight: 500;
+}
+
+footer p:hover {
+  color: #ff9800; /* Add hover effect */
+  transition: color 0.3s ease;
+}

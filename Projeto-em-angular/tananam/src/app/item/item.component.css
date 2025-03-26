@@ -1,0 +1,49 @@
+.item {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.item-promotion-text {
+  font-size: 1rem;
+  color: #4caf50;
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+.item-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.item-name {
+  font-size: 1.25rem;
+  margin: 0.5rem 0;
+}
+
+.item-price {
+  font-size: 1.1rem;
+  color: #ff9800;
+  margin: 0.5rem 0;
+}
+
+.item-buy-button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.item-buy-button:hover {
+  background-color: #ff9800;
+}
