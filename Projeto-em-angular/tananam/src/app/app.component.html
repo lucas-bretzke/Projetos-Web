@@ -38,11 +38,21 @@
   <div class="content">
     <h1>{{ title }}</h1>
 
-
     <div class="product-list">
       <app-item *ngFor="let item of items" [productName]="item.name" [productPrice]="item.price"
-        [promotion]="item.promotion" [isFavorite]="item.isFavorite" [productImage]="item.image">
+        [promotion]="item.promotion" [isCart]="item.isCart" [productImage]="item.image"
+        (click)="addToCart({ name: item.name, price: item.price, image: item.image })">
       </app-item>
+    </div>
+
+    <div class="cart">
+      <h2>Carrinho</h2>
+      <div class="cart-items">
+        <app-item *ngFor="let cartItem of cartItems" [productName]="cartItem.name" [productPrice]="cartItem.price"
+          [promotion]="false" [isCart]="true" [productImage]="cartItem.image">
+        </app-item>
+      </div>
+      <p><strong>Total:</strong> R$ {{ cartTotal }}</p>
     </div>
   </div>
 </main>

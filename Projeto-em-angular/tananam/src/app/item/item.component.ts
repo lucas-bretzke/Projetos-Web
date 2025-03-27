@@ -11,5 +11,5 @@ export class ItemComponent {
   @Input() productPrice!: number;
   @Input() productImage!: string;
   @Input() promotion!: boolean;
-  @Input() isFavorite!: boolean;
+  @Input() isCart!: boolean;
 }

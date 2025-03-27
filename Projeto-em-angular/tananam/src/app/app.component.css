@@ -33,3 +33,35 @@ main {
     flex: 1 1 calc(25% - 1rem);
     box-sizing: border-box;
 }
+
+.cart {
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.cart h2 {
+  margin-bottom: 1rem;
+}
+
+.cart-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.cart ul {
+  list-style: none;
+  padding: 0;
+}
+
+.cart li {
+  margin-bottom: 0.5rem;
+}
+
+.cart p {
+  font-weight: bold;
+  margin-top: 1rem;
+}
