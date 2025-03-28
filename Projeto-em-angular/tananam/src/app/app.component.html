@@ -40,8 +40,7 @@
 
     <div class="product-list">
       <app-item *ngFor="let item of items" [productName]="item.name" [productPrice]="item.price"
-        [promotion]="item.promotion" [isCart]="item.isCart" [productImage]="item.image"
-        (click)="addToCart({ name: item.name, price: item.price, image: item.image })">
+        [promotion]="item.promotion" [inCart]="item.inCart" [productImage]="item.image" (cartToggle)="addToCart(item)">
       </app-item>
     </div>
 
@@ -49,10 +48,10 @@
       <h2>Carrinho</h2>
       <div class="cart-items">
         <app-item *ngFor="let cartItem of cartItems" [productName]="cartItem.name" [productPrice]="cartItem.price"
-          [promotion]="false" [isCart]="true" [productImage]="cartItem.image">
+          [isCart]="true" [promotion]="cartItem.promotion" [inCart]="true" [productImage]="cartItem.image">
         </app-item>
       </div>
-      <p><strong>Total:</strong> R$ {{ cartTotal }}</p>
+      <p><strong>Total:</strong> R$ {{ cartTotal.toFixed(2) }}</p>
     </div>
   </div>
 </main>

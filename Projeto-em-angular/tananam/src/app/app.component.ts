@@ -17,26 +17,33 @@ export class AppComponent {
   title = '';
 
   items = [
-    { name: 'Tênis Esportivo', promotion: true, isCart: true, price: 299.99, image: 'assets/1.png' },
-    { name: 'Tênis Casual', promotion: false, isCart: false, price: 199.99, image: 'assets/2.png' },
-    { name: 'Camiseta Esportiva', promotion: true, isCart: false, price: 99.99, image: 'assets/3.png' },
-    { name: 'Calça Jeans', promotion: false, isCart: true, price: 149.99, image: 'assets/4.png' },
-    { name: 'Jaqueta de Couro', promotion: true, isCart: false, price: 399.99, image: 'assets/5.png' },
-    { name: 'Relógio Digital', promotion: false, isCart: true, price: 249.99, image: 'assets/6.png' },
-    { name: 'Tênis Esportivo', promotion: true, isCart: true, price: 299.99, image: 'assets/1.png' },
-    { name: 'Tênis Casual', promotion: false, isCart: false, price: 199.99, image: 'assets/2.png' },
-    { name: 'Camiseta Esportiva', promotion: true, isCart: false, price: 99.99, image: 'assets/3.png' },
-    { name: 'Calça Jeans', promotion: false, isCart: true, price: 149.99, image: 'assets/4.png' },
-    { name: 'Jaqueta de Couro', promotion: true, isCart: false, price: 399.99, image: 'assets/5.png' },
-    { name: 'Relógio Digital', promotion: false, isCart: true, price: 249.99, image: 'assets/6.png' }
+    { name: 'Tênis Esportivo', promotion: 7, inCart: false, price: 299.99, image: 'assets/1.png' },
+    { name: 'Tênis Casual', promotion: 0, inCart: false, price: 199.99, image: 'assets/2.png' },
+    { name: 'Camiseta Esportiva', promotion: 5, inCart: false, price: 99.99, image: 'assets/3.png' },
+    { name: 'Calça Jeans', promotion: 0, inCart: false, price: 149.99, image: 'assets/4.png' },
+    { name: 'Jaqueta de Couro', promotion: 5, inCart: false, price: 399.99, image: 'assets/5.png' },
+    { name: 'Relógio Digital', promotion: 0, inCart: false, price: 249.99, image: 'assets/6.png' },
+    { name: 'Tênis Esportivo', promotion: 10, inCart: false, price: 299.99, image: 'assets/1.png' },
+    { name: 'Tênis Casual', promotion: 0, inCart: false, price: 199.99, image: 'assets/2.png' },
+    { name: 'Camiseta Esportiva', promotion: 5, inCart: false, price: 99.99, image: 'assets/3.png' },
+    { name: 'Calça Jeans', promotion: 5, inCart: true, price: 149.99, image: 'assets/4.png' },
+    { name: 'Jaqueta de Couro', promotion: 0, inCart: false, price: 399.99, image: 'assets/5.png' },
+    { name: 'Relógio Digital', promotion: 15, inCart: true, price: 249.99, image: 'assets/6.png' }
 
   ];
 
-  cartItems: { name: string; price: number; image: string }[] = [];
+  cartItems: {
+promotion: number; name: string; price: number; image: string 
+}[] = [];
   cartTotal: number = 0;
 
-  addToCart(item: { name: string; price: number; image: string }) {
-    this.cartItems.push(item);
+  addToCart(item: any) {
+    if (item.inCart) {
+      this.cartItems = this.cartItems.filter(cartItem => cartItem !== item);
+    } else {
+      this.cartItems.push(item);
+    }
+    item.inCart = !item.inCart;
     this.cartTotal = this.cartItems.reduce((total, currentItem) => total + currentItem.price, 0);
   }
 }

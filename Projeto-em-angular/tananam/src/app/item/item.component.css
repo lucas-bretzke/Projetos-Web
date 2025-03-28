@@ -47,3 +47,17 @@
 .item-buy-button:hover {
   background-color: #ff9800;
 }
+
+.item-cart-icon {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  color: green;
+  font-weight: bold;
+}
+
+.item-cart-icon svg {
+  width: 20px;
+  height: 20px;
+}

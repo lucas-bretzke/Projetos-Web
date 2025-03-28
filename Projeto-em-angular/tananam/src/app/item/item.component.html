@@ -2,17 +2,19 @@
     <img [src]="productImage" alt="{{ productName }}" class="item-image" />
     <h2 class="item-name">{{ productName }}</h2>
     <p class="item-price">R$ {{ productPrice }}</p>
-    <button class="item-buy-button">Adicionar ao carrinho</button>
+    <p class="item-promotion-text" *ngIf="promotion && promotion > 0">
+        Por apenas R$ {{ (productPrice - (productPrice * (promotion / 100))).toFixed(2) }}
+    </p>
+    <button class="item-buy-button" (click)="toggleCart()">
+        {{ inCart ? 'Remover do carrinho' : 'Adicionar ao carrinho' }}
+    </button>
 
-    <p class="item-promotion-text" *ngIf="promotion">{{ promotion }}</p>
+
+    <span class="item-cart-icon" *ngIf="inCart === true">
+        🛒
+    </span>
+
+    <button class="item-buy-button" *ngIf="isCart === true" (click)="buy()">
+        Comprar
+    </button>
 </div>
-
-
-
-
-<div class="item-favorite" *ngIf="isCart">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-            <path fill="none" d="M0 0h24v24H0z" />
-            <path
-                d="M12 21.35l-1.45-1.32C5.4 16.73 2 13.28 2 9.5 2 7.5 3.5 6 5.5 6c1.34 0 2.61.99 3.5 2 .89-1.01 2.16-2 3.5-2 2 0 3.5 1.5 3.5 3.5 0 3.78-3.4 7.23-8.55 10.54L12 21.35z" />
-        </svg>
