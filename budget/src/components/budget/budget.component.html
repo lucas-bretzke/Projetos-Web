@@ -1,14 +1,10 @@
-<div class="budgets">
+<div class="container">
     <h1>Welcome to Budget App!</h1>
     <h2>Orçamentos</h2>
     <p>Crie um orçamento para o seu projeto</p>
 
     <div class="budget-list">
-        <div class="budget-item" *ngFor="let budget of budgets">
-            <h3>{{ budget.clientName }}</h3>
-            <p>Serviço: {{ budget.service }}</p>
-            <p>Valor: {{ budget.totalValue | currency }}</p>
-        </div>
+        <app-card *ngFor="let budget of budgets" [budget]="budget"></app-card>
     </div>
 
     <div class="budget-form">

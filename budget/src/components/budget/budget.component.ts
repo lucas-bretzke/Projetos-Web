@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CardComponent } from '../card/card.component';
 
 @Component({
   selector: 'app-budget',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, CardComponent],
   templateUrl: './budget.component.html',
   styleUrls: ['./budget.component.css']
 })
@@ -33,7 +34,6 @@ export class BudgetComponent {
       totalValue: this.newBudget.totalValue || 0
     });
 
-    console.log('TESTE', this.budgets.length);
     this.newBudget = { clientName: '', service: '', totalValue: 0 };
   }
 }

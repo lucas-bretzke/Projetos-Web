@@ -1,0 +1,32 @@
+.item {
+    width: 750px;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid gray;
+}
+
+.name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.amount {
+    font-size: 16px;
+    color: green;
+}
+
+.btn-delete {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #cf3939;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 8px 12px;
+}

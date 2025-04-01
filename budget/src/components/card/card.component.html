@@ -1,1 +1,6 @@
-<p>card works!</p>
+<div class="item">
+    <h3 class="name">{{ budget.clientName}}</h3>
+    <p>Serviço: {{ budget.service }}</p>
+    <p class="amount">Valor: {{ budget.totalValue | currency }}</p>
+    <button class="btn-delete" (click)="deleteBudget()">Deletar</button>
+</div>
