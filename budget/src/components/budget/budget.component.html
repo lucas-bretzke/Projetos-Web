@@ -1,0 +1,20 @@
+<div class="budgets">
+    <h1>Welcome to Budget App!</h1>
+    <h2>Orçamentos</h2>
+    <p>Crie um orçamento para o seu projeto</p>
+
+    <div class="budget-list">
+        <div class="budget-item" *ngFor="let budget of budgets">
+            <h3>{{ budget.clientName }}</h3>
+            <p>Serviço: {{ budget.service }}</p>
+            <p>Valor: {{ budget.totalValue | currency }}</p>
+        </div>
+    </div>
+
+    <div class="budget-form">
+        <input [(ngModel)]="newBudget.clientName" placeholder="Nome do cliente" />
+        <input [(ngModel)]="newBudget.service" type="text" placeholder="Serviço vendido" />
+        <input [(ngModel)]="newBudget.totalValue" type="number" placeholder="Valor total do serviço" />
+        <button type="button" (click)="addBudget()">Criar orçamento</button>
+    </div>
+</div>
