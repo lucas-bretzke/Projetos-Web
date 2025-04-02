@@ -10,12 +10,12 @@ import { CommonModule } from '@angular/common';
 })
 export class CardComponent {
   @Input() budget!: { clientName: string, service: string, totalValue: number };
-  @Output() deleteBudget = new EventEmitter<void>();
+  @Output() delete = new EventEmitter<void>();
 
 
   deleteBudget() {
     console.log('Deletando orçamento...');
     // this.budget = !this.budget;
-    this.deleteBudget.emit();
+    this.delete.emit();
   }
 }
