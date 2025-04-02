@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CardComponent } from '../card/card.component';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-budget',
@@ -35,5 +36,23 @@ export class BudgetComponent {
     });
 
     this.newBudget = { clientName: '', service: '', totalValue: 0 };
+  }
+
+  constructor(private http: HttpClient) { }
+
+  ngOnInit(): void {
+    this.getBudgets();
+  }
+
+  getBudgets(): void {
+    let url = "http://localhost:5160/WeatherForecast"
+    this.http.get(url).subscribe({
+      next: (response) => {
+        console.log(response);
+      },
+      error: (error) => {
+        console.error('Error fetching budgets:', error);
+      }
+    });
   }
 }
