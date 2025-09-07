@@ -1,0 +1,31 @@
+📚 Aula: Call Stack, Event Loop, Task Queue e Microtasks no JavaScript
+
+1 - (JavaScript é Single threaded): executa uma unica coisa por vez;
+2 - Call Stack (Pilha de chamadas): Funciona como um LIFO 'Last in, Firt Out' ou 'Ultimo a entrar, primeiro a sair'
+3 - Web API (O mundo "externo do JS"): Funções que rodam pelo Navegador Fetch, setTimeout, Eventos DOM, setIntervarl etc... 
+ele recebe essas funções, processa elas de forma assincrona, quando terminar coloca o resultado na pilha certa para que o event loop busque
+4 - Task Queue ou CallBack Queue (Fila de macrotasks): Onde caem as macrotasks, Quando a Call Stack está vazia o Event loop busca a 
+próxima macrotask da fila e executa
+5 - Microtasks Queue: Microtaskas têm maior prioridade do que macrotasks, elas são (Promise.then / Promise.catch / Promise.finally 
+queueMicrotask()). Depois quem uma função de Call Stack termina, antes de pegar uma nova Macrotaskc, o Event Loop executa todas as Microtasks pendentes.
+6 - Event Loop (O Maestro): Funciona assim:
+  1 - Verifica de call Stack está vazia,
+  2 - Se estiver pega todas as microtasks pendentes e as executa,
+  3 - Se não ouver microtasks pensentes busca a proxima Macrotask na Task Queue e a executa,
+
+
+
+Analogia simples 🎭
+
+Call Stack → O palco onde os atores estão atuando.
+
+Web APIs → Bastidores, onde outros trabalhadores estão preparando coisas.
+
+Task Queue (Macrotasks) → Fila de atores esperando para entrar em cena.
+
+Microtasks → Figurantes com passe VIP que entram antes de todo mundo.
+
+Event Loop → O diretor que controla quem entra no palco.
+
+//////
+Task Queue, CallBack Queue ou Macrotask Queue são a mesma coisa, apenas nomes diferentes.
